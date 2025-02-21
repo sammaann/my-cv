@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  .download-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: pulse 2s infinite;
+  }
+  
+  .download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  #cv-container {
+    max-width: 210mm;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .profile-image-container {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    position: relative;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-image:hover {
+    transform: scale(1.05);
+  }
+  
+  .header h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: slideIn 1s ease-out;
+  }
+  
+  .contact-info {
+    color: #555;
+    margin-bottom: 10px;
+    animation: slideIn 1.2s ease-out;
+  }
+  
+  .contact-info i {
+    margin-right: 8px;
+    color: #007bff;
+  }
+  
+  .section {
+    margin-bottom: 25px;
+    animation: fadeIn 1s ease-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+  
+  .section:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .section:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  .section:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  .section:nth-child(4) {
+    animation-delay: 0.8s;
+  }
+  
+  .section-title {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-bottom: 8px;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+    transition: width 0.3s ease;
+  }
+  
+  .section:hover .section-title::after {
+    width: 100px;
+  }
+  
+  .education-item,
+  .experience-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .education-item:hover,
+  .experience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .skills-category {
+    padding: 15px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    transition: transform 0.3s ease;
+  }
+  
+  .skills-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .skills-list {
+    list-style: none;
+  }
+  
+  .skills-list li {
+    margin: 8px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .skills-list li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #007bff;
+  }
+  
+  .projects-list {
+    list-style: none;
+  }
+  
+  .projects-list li {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    transition: transform 0.3s ease;
+  }
+  
+  .projects-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .project-title {
+    color: #34495e;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Notification styles */
+  .notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    transform: translateY(100px);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .notification.success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+  }
+  
+  .notification.error {
+    background: linear-gradient(135deg, #dc3545 0%, #f72c45 100%);
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+  }
+  
+  .notification.show {
+    transform: translateY(0);
+  }
+  
+  /* Loading animation styles */
+  .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    transition: opacity 0.5s ease;
+  }
+  
+  .loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .loader-spin {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  .loader-text {
+    margin-top: 15px;
+    color: #007bff;
+    font-weight: 500;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media print {
+    body {
+      padding: 0;
+      background: white;
+    }
+  
+    .download-btn {
+      display: none;
+    }
+  
+    #cv-container {
+      box-shadow: none;
+      margin: 0;
+      padding: 20px;
+    }
+  
+    .education-item,
+    .experience-item,
+    .skills-category,
+    .projects-list li {
+      break-inside: avoid;
+    }
+  }
+  
